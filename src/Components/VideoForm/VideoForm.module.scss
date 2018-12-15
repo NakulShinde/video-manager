@@ -1,0 +1,24 @@
+@import './../../Styles/sharedVariables';
+
+.backButton {
+    margin-left: inherit;
+}
+
+.formContainer {
+    background-color: $background-color-shade-3;
+    padding: 20px;
+    border: $border-style;
+}
+
+.formRowFooter {
+    margin-left: 25%;
+    text-align: left;
+}
+.errorField {
+    border: 1px solid $color-red !important;
+}
+@media screen and (max-width: 720px) {
+    .formRowFooter {
+        margin-left: 0;
+    }
+}

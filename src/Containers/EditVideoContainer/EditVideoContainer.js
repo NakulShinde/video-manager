@@ -1,22 +1,31 @@
 import React, {Component} from 'react'
+import VideoForm from '../../Components/VideoForm/VideoForm';
 
 class EditVideoContainer extends Component {
-    
-    constructor(){
+
+    constructor() {
         super();
         this.state = {
             videoId: 0
         }
+        this.updateVideoDetails = this
+            .updateVideoDetails
+            .bind(this);
     }
-    componentDidMount(){
+    componentDidMount() {
         let videoId = this.props.match.params["id"];
         this.setState({videoId: videoId})
     }
-
+    updateVideoDetails(newVideoData) {
+        console.log("updateVideoDetails", newVideoData);
+    }
     render() {
-        return (<div>
-            EditVideoContainer videoId: {this.state.videoId}
-        </div>)
+        return (
+            <div>
+                <h2>Edit Video</h2>
+                <VideoForm updateVideoDetails={this.updateVideoDetails}></VideoForm>
+            </div>
+        )
     }
 }
 
