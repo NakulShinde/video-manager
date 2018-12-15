@@ -6,7 +6,7 @@ import VideoHeader from './VideoListHeader/VideoListHeader'
 import css_styles from './VideoList.module.scss'
 
 const VideoList = (props) => {
-    const {movieCategories, onDeleteVideoClick, videoList} = props;
+    const {authorList, movieCategories, onDeleteVideoClick, videoList} = props;
     return <div className={css_styles.video__list}>
 
         <h2>Video List</h2>
@@ -15,6 +15,7 @@ const VideoList = (props) => {
             .allIds
             .map((video, index) => <VideoRow
                 key={index}
+                authorList={authorList}
                 video={videoList[video]}
                 movieCategories={movieCategories}
                 onDeleteVideoClick={onDeleteVideoClick}></VideoRow>)}

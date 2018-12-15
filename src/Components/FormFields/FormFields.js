@@ -50,8 +50,8 @@ export const FormFieldSelect = props => {
 				value={props.value}
 			>
 				<option value="select_value">Select Author</option>
-				{Object.keys(props.options).map((optionKey, index)=>{
-					return <option key={index} value={optionKey}>{props.options[optionKey]}</option>
+				{props.options.map((option, index)=>{
+					return <option key={index} value={option.id}>{option.name}</option>
 				})}
           	</select>
         	}
@@ -70,8 +70,8 @@ export const FormFieldSelectMultiple = props => {
 				onChange={props.onChangeHandler}
 				value={props.value}
 			multiple>
-				{Object.keys(props.options).map((optionKey, index)=>{
-					return <option key={index} value={optionKey}>{props.options[optionKey]}</option>
+				{props.options.map((option, index)=>{
+					return <option key={index} value={option.id}>{option.name}</option>
 				})}
           	</select>
         	}

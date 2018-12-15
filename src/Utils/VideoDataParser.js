@@ -20,13 +20,21 @@ export function parseDBVideoData(dbData) {
         let videoList = {
             allIds: []
         };
+        let authorList = {
+            allIds: []
+        };
         for (let index in dbAuthors) {
             let author = dbAuthors[index];
-            let authorName = author.name;
+            let authorId = author.id;
+            authorList[author.id] = {
+                id: author.id,
+                name: author.name
+            }
+            authorList.allIds.push(author.id);
             let authorVideos = author.videos;
             for (let videoIndex in authorVideos) {
                 let video = authorVideos[videoIndex];
-                Object.assign(video, {author: authorName});
+                Object.assign(video, {author: authorId});
                 videoList[video.id] = video;
                 videoList
                     .allIds
@@ -34,6 +42,7 @@ export function parseDBVideoData(dbData) {
             }
         }
         parsedData['videoList'] = videoList;
+        parsedData['authorList'] = authorList;
     }
 
     return parsedData;

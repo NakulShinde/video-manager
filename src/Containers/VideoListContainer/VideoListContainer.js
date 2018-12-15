@@ -34,13 +34,18 @@ class VideoListContainer extends Component {
             <VideoList
                 videoList={this.props.videoList}
                 movieCategories={this.props.movieCategories}
+                authorList={this.props.authorList}
                 onDeleteVideoClick={this.onDeleteVideoClick}></VideoList>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return {movieCategories: state.appData.movieCategories, videoList: state.appData.videoList};
+    return {
+        movieCategories: state.appData.movieCategories, 
+        videoList: state.appData.videoList,
+        authorList: state.appData.authorList
+    };
 };
 const matchDispatchToProps = dispatch => {
     return {

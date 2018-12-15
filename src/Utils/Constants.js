@@ -13,18 +13,4 @@ export const FORM_FIELDS = {
     category: 'Video Category'
 };
 
-export const AUTHORS_LIST = {
-    david_munch: "David Munch",
-    li_sun_chi: "Li Sun Chi",
-    steven_scorsese: "Steven Scorsese"
-}
-
-export const VIDEO_CATEGORIES_LIST = {
-    thriller : "Thriller",
-    criminal : "Criminal",
-    comedy: "Comedy",
-    horror: "Horror",
-    drama: "Drama",
-    romance: "Romance"
-}
 

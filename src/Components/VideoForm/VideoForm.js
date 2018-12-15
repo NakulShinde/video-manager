@@ -5,7 +5,7 @@ import css_styles from './VideoForm.module.scss'
 import buttonStyles from './../Buttons/Buttons.module.scss'
 
 import {FormFieldTextInput, FormFieldSelect, FormFieldSelectMultiple} from '../FormFields/FormFields'
-import {FORM_FIELDS, AUTHORS_LIST, VIDEO_CATEGORIES_LIST} from './../../Utils/Constants'
+import {FORM_FIELDS} from './../../Utils/Constants'
 import {CustomButton} from './../Buttons/Buttons'
 
 class VideoForm extends Component {
@@ -14,7 +14,7 @@ class VideoForm extends Component {
         this.deafultState = {
             name: '',
             author: '',
-            category: []
+            catIds: []
         }
         this.state = {
             ...this.deafultState
@@ -28,27 +28,15 @@ class VideoForm extends Component {
     }
     componentWillReceiveProps(newProps) {
         if (this.props !== newProps) {
-            let {video, movieCategories} = newProps;
-            let category = [];
-            for (const index in video.catIds) {
-                let key = video.catIds[index];
-                category.push(movieCategories[key].name.toLowerCase())
-            }
-            video.category = category;
-            video.author = video
-                .author
-                .split(' ')
-                .join('_')
-                .toLowerCase()
             this.setState({
-                ...video
+                ...newProps.video
             });
         }
     }
     handleUserInput(e) {
         const name = e.target.name;
         const value = e.target.value;
-        if (name !== 'category') {
+        if (name !== 'catIds') {
             this.setState({[name]: value});
         } else {
             this.setState((prev, next) => {
@@ -96,6 +84,8 @@ class VideoForm extends Component {
 
     render() {
         const error = this.state.error || {};
+        const {authorList, categoryList} = this.props;
+        console.log(authorList, categoryList, "aaaaaaaaaaa")
         return (
             <div className={css_styles.formContainer}>
                 <form action="#" id="task_form">
@@ -117,17 +107,17 @@ class VideoForm extends Component {
                         : ""}
                         onChangeHandler={this.handleUserInput}
                         value={this.state["author"]}
-                        options={AUTHORS_LIST}></FormFieldSelect>
+                        options={authorList}></FormFieldSelect>
                     <FormFieldSelectMultiple
                         label={FORM_FIELDS.category}
-                        elementId="category"
-                        elementName="category"
-                        customClass={error["category"]
+                        elementId="catIds"
+                        elementName="catIds"
+                        customClass={error["catIds"]
                         ? css_styles.errorField
                         : ""}
                         onChangeHandler={this.handleUserInput}
-                        value={this.state["category"]}
-                        options={VIDEO_CATEGORIES_LIST}></FormFieldSelectMultiple>
+                        value={this.state["catIds"]}
+                        options={categoryList}></FormFieldSelectMultiple>
                     <div className={css_styles.formRowFooter}>
                         <CustomButton
                             id="submit"
