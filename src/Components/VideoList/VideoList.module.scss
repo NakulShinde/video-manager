@@ -1,13 +1,14 @@
 @import './../../Styles/sharedVariables';
+
 :local {
     .video__list {
-        
+
         .listRow {
             display: flex;
             justify-content: space-around;
             border: $border-style;
             border-top: none;
-            &:nth-child(odd){
+            &:nth-child(odd) {
                 background-color: $background-color-shade-3;
             }
             &.listHeader {
@@ -30,8 +31,40 @@
             &.listAction {
                 display: inline;
                 border-right: none;
-                button{
+                button {
                     margin-right: 5px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 720px) {
+        .video__list {
+            .listRow {
+                padding: 10px 0px;
+                display: block;
+                &.listHeader {
+                    display: none;
+                }
+                &.listHeader+.listRow {
+                    display: block;
+                    border: $border-style;
+                }
+            }
+            .listCol {
+                display: block;
+                text-align: right;
+                padding: 5px 10px;
+                border-right: none;
+                &.listAction {
+                    display: block;
+                    text-align: right;
+                }
+                &::before {
+                    content: attr(data-label);
+                    float: left;
+                    font-weight: bold;
+                    font-size: 0.8em;
+                    text-transform: uppercase;
                 }
             }
         }
