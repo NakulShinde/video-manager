@@ -1,6 +1,10 @@
 const initialState = {
-    movieCategories: {},
-    videos: {}
+    movieCategories: {
+        allIds:[]
+    },
+    videoList: {
+        allIds:[]
+    }
 }
 
 export function videoListReducer(state = initialState, action) {

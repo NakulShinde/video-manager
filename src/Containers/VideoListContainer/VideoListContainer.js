@@ -14,18 +14,11 @@ class VideoListContainer extends Component {
     }
 
     render() {
-        const task = {
-            title: 'asdasd',
-            description: 'ADASDASDAD',
-            status: 'ERTYUI',
-            priority: 'HIGH',
-            actions: 'Actions'
-        };
+
         return (
             <VideoList
                 videoList={this.props.videoList}
-                movieCategories={this.props.movieCategories}
-                task={task}></VideoList>
+                movieCategories={this.props.movieCategories}></VideoList>
         )
     }
 }
