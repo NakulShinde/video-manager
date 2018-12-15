@@ -8,8 +8,7 @@ export const CustomButton = (props) => {
         className={props
         .customClass
         .join(' ')}
-        onClick=
-        { (e) =>{ e.preventDefault(); props.onClickHandler() } }>
+        onClick={props.onClickHandler}>
         {props.text}
     </button>
 }

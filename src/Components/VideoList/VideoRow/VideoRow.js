@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 import css_styles from './../VideoList.module.scss'
 import {CustomButton} from '../../Buttons/Buttons';
@@ -18,10 +19,13 @@ const VideoRow = (props) => {
         <div
             data-label={VIDEO_CONTENT.options}
             className={`${css_styles.listCol} ${css_styles.listAction}`}>
-            <CustomButton
-                text='Edit'
-                customClass={[buttonStyles.button]}
-                onClickHandler={() => {}}></CustomButton>
+
+            <Link to={`/edit-video/${video.id}`}>
+                <CustomButton
+                    text='Edit'
+                    customClass={[buttonStyles.button]}
+                    onClickHandler={() => {}}></CustomButton>
+            </Link>
             <CustomButton
                 text="Delete"
                 customClass={[buttonStyles.button, buttonStyles.buttonDanger]}
