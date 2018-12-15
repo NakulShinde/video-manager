@@ -26,6 +26,25 @@ class VideoForm extends Component {
             .onSubmitHandler
             .bind(this)
     }
+    componentWillReceiveProps(newProps) {
+        if (this.props !== newProps) {
+            let {video, movieCategories} = newProps;
+            let category = [];
+            for (const index in video.catIds) {
+                let key = video.catIds[index];
+                category.push(movieCategories[key].name.toLowerCase())
+            }
+            video.category = category;
+            video.author = video
+                .author
+                .split(' ')
+                .join('_')
+                .toLowerCase()
+            this.setState({
+                ...video
+            });
+        }
+    }
     handleUserInput(e) {
         const name = e.target.name;
         const value = e.target.value;
@@ -114,9 +133,9 @@ class VideoForm extends Component {
                             id="submit"
                             customClass={[buttonStyles.button, buttonStyles.bigButton]}
                             onClickHandler={(e) => {
-                                e.preventDefault();
-                                this.onSubmitHandler();
-                            }}
+                            e.preventDefault();
+                            this.onSubmitHandler();
+                        }}
                             type="submit"
                             text="Save"></CustomButton>
 
