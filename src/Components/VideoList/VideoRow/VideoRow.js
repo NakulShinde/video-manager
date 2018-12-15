@@ -8,7 +8,7 @@ import {getCategories, getHighQualityFormat} from './../../../Utils/Utils'
 import buttonStyles from './../../Buttons/Buttons.module.scss'
 
 const VideoRow = (props) => {
-    const {video, movieCategories} = props;
+    const {video, onDeleteVideoClick, movieCategories} = props;
 
     return <div className={css_styles.listRow}>
         <div data-label={VIDEO_CONTENT.name} className={css_styles.listCol}>{video.name}</div>
@@ -29,7 +29,7 @@ const VideoRow = (props) => {
             <CustomButton
                 text="Delete"
                 customClass={[buttonStyles.button, buttonStyles.buttonDanger]}
-                onClickHandler={() => {}}></CustomButton>
+                onClickHandler={(e)=> onDeleteVideoClick(video.id)}></CustomButton>
         </div>
     </div>
 }

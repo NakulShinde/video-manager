@@ -5,6 +5,10 @@ export function videoDataLoadSuccess(videoData) {
     return {type: 'VIDEO_DATA_LOAD_SUCCESS', data: videoData};
 }
 
+export function deleteVideo(videoId) {
+    return {type: 'VIDEO_DELETE', videoId: videoId};
+}
+
 export function fetchVideoList() {
     return (dispatch) => {
 

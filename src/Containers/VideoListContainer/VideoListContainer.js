@@ -3,9 +3,16 @@ import {connect} from "react-redux";
 
 import VideoList from './../../Components/VideoList/VideoList'
 
-import {fetchVideoList} from './../../Redux/Actions/VideoListActions'
+import {fetchVideoList, deleteVideo} from './../../Redux/Actions/VideoListActions'
 
 class VideoListContainer extends Component {
+
+    constructor() {
+        super();
+        this.onDeleteVideoClick = this
+            .onDeleteVideoClick
+            .bind(this)
+    }
 
     componentDidMount() {
         this
@@ -13,12 +20,21 @@ class VideoListContainer extends Component {
             .fetchVideoList();
     }
 
-    render() {
+    onDeleteVideoClick(videoId) {
+        let result = window.confirm("Are you sure you want to delete the video?");
+        if (result === true) {
+            this
+            .props
+            .deleteVideo(videoId);
+        }
+    }
 
+    render() {
         return (
             <VideoList
                 videoList={this.props.videoList}
-                movieCategories={this.props.movieCategories}></VideoList>
+                movieCategories={this.props.movieCategories}
+                onDeleteVideoClick={this.onDeleteVideoClick}></VideoList>
         )
     }
 }
@@ -28,7 +44,8 @@ const mapStateToProps = state => {
 };
 const matchDispatchToProps = dispatch => {
     return {
-        fetchVideoList: () => dispatch(fetchVideoList())
+        fetchVideoList: () => dispatch(fetchVideoList()),
+        deleteVideo: (videoId) => dispatch(deleteVideo(videoId))
     };
 };
 export default connect(mapStateToProps, matchDispatchToProps)(VideoListContainer);
