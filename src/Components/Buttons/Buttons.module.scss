@@ -5,14 +5,10 @@
     border-color: $button-primary;
     color: $color-white;
     margin: 5px;
-    letter-spacing: 1px;
-    line-height: 1;
-    outline: 0;
     cursor: pointer;
     border: 1px solid $button-primary;
     border-radius: 4px;
-    font-size: 0.8em;
-    height: 25px;
+    padding: 5px 8px;
     &:hover {
         background-color: $button-primary-over;
         border-color: $button-primary-over;
@@ -45,6 +41,15 @@
         background-color: $color-white;
         color: $button-primary;
         border: 1px solid $button-primary;
+    }
+}
+
+.buttonDanger {
+    background-color: $button-danger;
+    border: 1px solid $button-danger;
+    &:hover {
+        background-color: $button-danger-over;
+        border: 1px solid $button-danger-over;
     }
 }
 

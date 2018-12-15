@@ -4,7 +4,7 @@ import css_styles from './../VideoList.module.scss'
 import {CustomButton} from '../../Buttons/Buttons';
 import {VIDEO_CONTENT} from './../../../Utils/Constants'
 import {getCategories, getHighQualityFormat} from './../../../Utils/Utils'
-
+import buttonStyles from './../../Buttons/Buttons.module.scss'
 
 const VideoRow = (props) => {
     const {video, movieCategories} = props;
@@ -18,8 +18,14 @@ const VideoRow = (props) => {
         <div
             data-label={VIDEO_CONTENT.options}
             className={`${css_styles.listCol} ${css_styles.listAction}`}>
-            <CustomButton text='Edit'></CustomButton>
-            <CustomButton text='Delete'></CustomButton>
+            <CustomButton
+                text='Edit'
+                customClass={[buttonStyles.button]}
+                onClickHandler={() => {}}></CustomButton>
+            <CustomButton
+                text="Delete"
+                customClass={[buttonStyles.button, buttonStyles.buttonDanger]}
+                onClickHandler={() => {}}></CustomButton>
         </div>
     </div>
 }
