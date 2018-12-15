@@ -1,23 +1,28 @@
+@import './../../Styles/sharedVariables';
+
 :local {
     .app__header {
-        background-color: #282c34;
+        background-color: $primary-color;
         display: flex;
         flex-direction: row;
         justify-content: left;
-        color: white;
-    }
-    .app__header div {
-        padding: 5px 10px;
-        display: flex;
-        align-items: flex-end;
-    }
-    .app__header div:hover {
-        background-color: #87a2ebc5;
-        cursor: pointer;
+        color: $color-white;
+        div {
+            padding: 5px 10px;
+            display: flex;
+            align-items: flex-end;
+            &.link:hover {
+                background-color: $background-color-shade-1;
+                cursor: pointer;
+                a {
+                    color: $primary-color;
+                }
+            }
+        }
     }
     .link a,
     .title a {
-        color: #ffffff;
+        color: $color-white;
         text-decoration: none;
     }
     .title a {

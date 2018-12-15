@@ -1,0 +1,61 @@
+@import './../../Styles/sharedVariables';
+
+.button {
+    background-color: $button-primary;
+    border-color: $button-primary;
+    color: $color-white;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid $button-primary;
+    border-radius: 4px;
+    padding: 5px 8px;
+    &:hover {
+        background-color: $button-primary-over;
+        border-color: $button-primary-over;
+    }
+    &.buttonDisabled {
+        opacity: 0.7;
+    }
+    &.buttonDisabled:hover {
+        background-color: $button-primary;
+        border-color: $button-primary;
+        cursor: not-allowed;
+    }
+}
+
+.bigButton {
+    padding: 10px 15px;
+    height: 35px;
+}
+
+.buttonBlueHollow {
+    background-color: $color-white;
+    color: $button-primary;
+    border: 1px solid $button-primary;
+    &:hover {
+        background-color: $color-white;
+        color: $button-primary-over;
+        border: 1px solid $button-primary-over;
+    }
+    &.buttonDisabled:hover {
+        background-color: $color-white;
+        color: $button-primary;
+        border: 1px solid $button-primary;
+    }
+}
+
+.buttonDanger {
+    background-color: $button-danger;
+    border: 1px solid $button-danger;
+    &:hover {
+        background-color: $button-danger-over;
+        border: 1px solid $button-danger-over;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .button {
+        padding: 3px 7px;
+        margin: 3px;
+    }
+}
