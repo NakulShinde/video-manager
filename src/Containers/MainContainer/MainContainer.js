@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 
 import css_styles from './MainContainer.module.scss'
 
-import {AddVideoContainer} from '../AddVideoContainer/AddVideoContainer';
+import AddVideoContainer from '../AddVideoContainer/AddVideoContainer';
 import VideoListContainer from '../VideoListContainer/VideoListContainer';
 import EditVideoContainer from '../EditVideoContainer/EditVideoContainer';
 
