@@ -10,7 +10,7 @@ export const VIDEO_CONTENT = {
 export const FORM_FIELDS = {
     name: 'Video Name',
     author: 'Video Author',
-    category: 'Video Category'
+    catIds: 'Video Category'
 };
 
 
