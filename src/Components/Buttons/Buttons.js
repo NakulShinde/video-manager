@@ -2,6 +2,7 @@ import React from 'react'
 
 export const CustomButton = (props) => {
     return <button
+        id={props.id}
         disabled={props.isDisable
         ? true
         : false}
