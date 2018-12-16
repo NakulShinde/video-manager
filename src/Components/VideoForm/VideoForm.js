@@ -45,7 +45,7 @@ class VideoForm extends Component {
                     newCategory = Array.from(prev[name]);
                     newCategory.push(value);
                 } else {
-                    newCategory = prev[name];
+                    newCategory = prev[name].filter(val => val !== value);
                 }
                 return {[name]: newCategory}
             })
@@ -88,7 +88,7 @@ class VideoForm extends Component {
         console.log(authorList, categoryList, "aaaaaaaaaaa")
         return (
             <div className={css_styles.formContainer}>
-                <form action="#" id="task_form">
+                <form action="#" id="video_form">
                     <FormFieldTextInput
                         label={FORM_FIELDS.name}
                         elementId="name"
