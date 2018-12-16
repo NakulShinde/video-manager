@@ -9,13 +9,13 @@ import thunk from 'redux-thunk';
 const mockStore = configureStore([thunk]);
 
 import VideoListContainer from './VideoListContainer'
-import {initialState} from './../../Utils/UnitTestsData'
+import {initialStoreState} from './../../Utils/UnitTestsData'
 
 let wrapper;
 let store;
 beforeEach(() => {
     //creates the store with any initial state or middleware needed
-    store = mockStore(initialState)
+    store = mockStore(initialStoreState)
     wrapper = shallow(
         <Provider store={store}>
             <MemoryRouter>
