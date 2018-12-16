@@ -24,10 +24,10 @@ API Setup (used [https://www.npmjs.com/package/json-server](https://www.npmjs.co
   - [http://localhost:3004/movie-categories](http://localhost:3004/movie-categories)
   - [http://localhost:3004/movie-authors](http://localhost:3004/movie-authors)
 
-Run test
+Run test (Unit testing is in progress)
 - #npm test
 
-Run test coverage
+Run test coverage (Unit testing is in progress)
 - #npm test -- --coverage
 
 Production Build
