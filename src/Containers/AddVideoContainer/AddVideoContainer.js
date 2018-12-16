@@ -22,7 +22,9 @@ class AddVideoContainer extends Component {
     }
     addVideoDetails(newVideoData) {
         //add hardcoded format data for new video
+        //and random generated string as Id
         Object.assign(newVideoData, {
+            id: Math.random().toString(36).substr(2, 12),
             formats: {
                 one: {
                     res: '1080p',
