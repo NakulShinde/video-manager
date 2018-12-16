@@ -85,7 +85,6 @@ class VideoForm extends Component {
     render() {
         const error = this.state.error || {};
         const {authorList, categoryList} = this.props;
-        console.log(authorList, categoryList, "aaaaaaaaaaa")
         return (
             <div className={css_styles.formContainer}>
                 <form action="#" id="video_form">
