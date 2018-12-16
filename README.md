@@ -2,7 +2,12 @@
 
 FontEnd tech stack used
 - React
-- React-route-dom
+- React-router-dom
+- React-redux
+- Redux-thunk
+- CSS-Modules
+- json-server for mock API's
+- Jest & Enzyme for unit testing and snapshot testing
 
 
 Installation steps
@@ -18,7 +23,7 @@ API Setup (used [https://www.npmjs.com/package/json-server](https://www.npmjs.co
 - #npm install -g json-server 
 - Goto 'public' folder 
 - #json-server --watch db.json --port 3004
-- This should create REST API's from . as,
+- This should create REST API's as below,
 
   Resources
   - [http://localhost:3004/movie-categories](http://localhost:3004/movie-categories)
