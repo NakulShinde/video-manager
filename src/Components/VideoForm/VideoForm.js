@@ -87,7 +87,7 @@ class VideoForm extends Component {
         const {authorList, categoryList} = this.props;
         return (
             <div className={css_styles.formContainer}>
-                <form action="#" id="video_form">
+                <form id="video_form">
                     <FormFieldTextInput
                         label={FORM_FIELDS.name}
                         elementId="name"
@@ -125,7 +125,6 @@ class VideoForm extends Component {
                             e.preventDefault();
                             this.onSubmitHandler();
                         }}
-                            type="submit"
                             text="Save"></CustomButton>
 
                         <Link to={`/`}>
