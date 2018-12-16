@@ -9,7 +9,6 @@ const VideoList = (props) => {
     const {authorList, movieCategories, onDeleteVideoClick, videoList} = props;
     return <div className={css_styles.video__list}>
 
-        <h2>Video List</h2>
         <VideoHeader></VideoHeader>
         {videoList
             .allIds
@@ -20,7 +19,7 @@ const VideoList = (props) => {
                 movieCategories={movieCategories}
                 onDeleteVideoClick={onDeleteVideoClick}></VideoRow>)}
         {videoList.allIds.length === 0 && <div className={css_styles.listRow}>
-            <div className={css_styles.listCol}>No Data</div>
+            <div data-label="Video" className={css_styles.listCol}>Empty Video List</div>
         </div>}
     </div>
 }
