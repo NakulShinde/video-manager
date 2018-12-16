@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from "react-redux";
 
 import VideoForm from '../../Components/VideoForm/VideoForm';
-import {getVideoFromId} from './../../Redux/Actions/EditVideoActions'
+import {getVideoFromId, updateVideoData} from './../../Redux/Actions/EditVideoActions'
 import {getValuesArrayExceptAllIdsValue} from './../../Utils/Utils'
 
 class EditVideoContainer extends Component {
@@ -22,19 +22,24 @@ class EditVideoContainer extends Component {
     }
     updateVideoDetails(newVideoData) {
         console.log("updateVideoDetails", newVideoData);
+        this.props.updateVideoData(newVideoData)
     }
     render() {
-        const authorList = getValuesArrayExceptAllIdsValue(this.props.authorList);
-        const categoryList = getValuesArrayExceptAllIdsValue(this.props.movieCategories);
+        const {apiIsLoading, apiHadError, videoToEdit, authorList, movieCategories} = this.props;
+
+        const authorListOptions = getValuesArrayExceptAllIdsValue(authorList);
+        const categoryListOptions = getValuesArrayExceptAllIdsValue(movieCategories);
         return (
             <div>
                 <h2>Edit Video</h2>
+                {apiIsLoading && <div>Loading...</div>}
+                {apiHadError && <div>Error. Please try again later.</div>}
                 <VideoForm
                     updateVideoDetails={this.updateVideoDetails}
-                    video={this.props.videoToEdit}
-                    authorList={authorList}
-                    categoryList={categoryList}
-                    movieCategories={this.props.movieCategories}></VideoForm>
+                    video={videoToEdit}
+                    authorList={authorListOptions}
+                    categoryList={categoryListOptions}
+                    movieCategories={movieCategories}></VideoForm>
             </div>
         )
     }
@@ -45,11 +50,14 @@ const mapStateToProps = state => {
         videoToEdit: state.videoToEdit, 
         movieCategories: state.appData.movieCategories, 
         authorList: state.appData.authorList,
+        apiIsLoading : state.apiIsLoading,
+        apiHadError: state.apiHadError
     };
 };
 const matchDispatchToProps = dispatch => {
     return {
-        getVideoFromId: (videoId) => dispatch(getVideoFromId(videoId))
+        getVideoFromId: (videoId) => dispatch(getVideoFromId(videoId)),
+        updateVideoData: (videoData) => dispatch(updateVideoData(videoData)),
     };
 };
 export default connect(mapStateToProps, matchDispatchToProps)(EditVideoContainer);

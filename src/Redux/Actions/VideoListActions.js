@@ -18,6 +18,7 @@ export function fetchVideoList() {
                 'movie-authors': values[1]
             };
             let parsedData = parseDBVideoData(data);
+            Object.assign(parsedData, {originalDbData: data})
             dispatch(videoDataLoadSuccess(parsedData));
         }).catch(error => {
             console.log(error.message)
