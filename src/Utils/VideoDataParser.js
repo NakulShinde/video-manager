@@ -50,32 +50,44 @@ export function parseDBVideoData(dbData) {
     return parsedData;
 }
 
-export function parseVideoDataToDBData(videoData, originalDbData) {
+export function parseVideoDataToDBData(videoData, originalDbData, mode) {
     let movieAuthors = originalDbData['movie-authors'];
-    
-    for(let authorIndex in movieAuthors){
+
+    for (let authorIndex in movieAuthors) {
         let authorData = movieAuthors[authorIndex];
-        
+
         //videoData.author has author id ref
         if (videoData.author === authorData.id) {
+            delete videoData.author;
             let videos = authorData.videos;
-            let videoFound = false;
-            for (let index in videos) {
-                let authorVideo = videos[index];
-                
-                if (authorVideo.id === videoData.id) {
-                    videoFound = true;
-                    Object.assign(authorVideo, {
-                        name: videoData.name,
-                        catIds: videoData.catIds
-                    })
-                    break;
+            if (mode === "add-mode") {
+                videos = (videos)
+                    ? videos
+                    : [];
+                videos.push(videoData)
+                Object.assign(authorData, {videos: videos});
+
+            } else if (mode === "update-mode") {
+
+                let videoFound = false;
+                for (let index in videos) {
+                    let authorVideo = videos[index];
+
+                    if (authorVideo.id === videoData.id) {
+                        videoFound = true;
+                        Object.assign(authorVideo, {
+                            name: videoData.name,
+                            catIds: videoData.catIds
+                        })
+                        break;
+                    }
                 }
-            }
-            if(!videoFound){
-                delete videoData.author;
-                videos.push({...videoData})
-            }
+                if (!videoFound) {
+                    videos.push({
+                        ...videoData
+                    })
+                }
+            } else {}
             return authorData;
         }
     }
