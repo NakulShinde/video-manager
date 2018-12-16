@@ -39,3 +39,23 @@ Production Build
 - #npm run build
 - Production build is created in `build` folder and ready to deploy
 
+
+# App Screen-Shots
+
+1]
+
+![image](https://user-images.githubusercontent.com/3436316/50058088-86850780-0199-11e9-9da8-6570e9eb3d70.png)
+
+2]
+
+![image](https://user-images.githubusercontent.com/3436316/50058095-9d2b5e80-0199-11e9-9df3-fe28b1c46d5e.png)
+
+
+3]
+
+![image](https://user-images.githubusercontent.com/3436316/50058124-07dc9a00-019a-11e9-963b-e7b10f4ed84e.png)
+
+
+4]
+
+![image](https://user-images.githubusercontent.com/3436316/50058101-c350fe80-0199-11e9-96e0-1eda3965e343.png)
