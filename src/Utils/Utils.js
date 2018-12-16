@@ -35,3 +35,13 @@ export function getHighQualityFormat(formatArr) {
     }
     return `${highQualityFormatKey} ${highQualityFormat.res}`
 }
+
+export function getValuesArrayExceptAllIdsValue(inputList){
+    let resultValueArray = (inputList)
+            ? Object.values(inputList)
+            : [];
+    
+    return resultValueArray.filter( value => {
+        return !Array.isArray(value);
+    })
+}

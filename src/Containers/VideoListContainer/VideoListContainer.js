@@ -24,23 +24,41 @@ class VideoListContainer extends Component {
         let result = window.confirm("Are you sure you want to delete the video?");
         if (result === true) {
             this
-            .props
-            .deleteVideo(videoId);
+                .props
+                .deleteVideo(videoId);
         }
     }
 
     render() {
+        const {apiIsLoading, apiHadError, videoList, authorList, movieCategories} = this.props;
+        if (apiIsLoading || apiHadError) {
+            return <div>
+                <h2>Video List</h2>
+                {apiIsLoading && <div>Loading...</div>}
+                {apiHadError && <div>Error. Please try again later.</div>}
+            </div>
+        }
         return (
-            <VideoList
-                videoList={this.props.videoList}
-                movieCategories={this.props.movieCategories}
-                onDeleteVideoClick={this.onDeleteVideoClick}></VideoList>
+            <React.Fragment>
+                <h2>Video List</h2>
+                <VideoList
+                    videoList={videoList}
+                    movieCategories={movieCategories}
+                    authorList={authorList}
+                    onDeleteVideoClick={this.onDeleteVideoClick}></VideoList>
+            </React.Fragment>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return {movieCategories: state.appData.movieCategories, videoList: state.appData.videoList};
+    return {
+        movieCategories: state.appData.movieCategories, 
+        videoList: state.appData.videoList,
+        authorList: state.appData.authorList,
+        apiIsLoading : state.apiIsLoading,
+        apiHadError: state.apiHadError
+    };
 };
 const matchDispatchToProps = dispatch => {
     return {

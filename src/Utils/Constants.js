@@ -7,3 +7,10 @@ export const VIDEO_CONTENT = {
     releaseDate: 'Release Date',
     options: 'Options'
 }
+export const FORM_FIELDS = {
+    name: 'Video Name',
+    author: 'Video Author',
+    category: 'Video Category'
+};
+
+
