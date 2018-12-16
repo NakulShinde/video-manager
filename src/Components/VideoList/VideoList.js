@@ -19,6 +19,9 @@ const VideoList = (props) => {
                 video={videoList[video]}
                 movieCategories={movieCategories}
                 onDeleteVideoClick={onDeleteVideoClick}></VideoRow>)}
+        {videoList.allIds.length === 0 && <div className={css_styles.listRow}>
+            <div className={css_styles.listCol}>No Data</div>
+        </div>}
     </div>
 }
 
